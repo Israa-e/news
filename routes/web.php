@@ -2,26 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-Auth::routes();
 
-Route::get('login', 'AuthController@getLogin');
-Route::post('login', 'AuthController@login');
-Route::middleware('auth')->post('logout','AuthController@logout');
+Route::get('/', [\App\Http\Controllers\HomeController::class,'index']);
 
-Route::middleware('auth')->prefix('admin')->namespace('Admin')->group(function(){
-    Route::resource('users','UserController');
-    Route::resource('categories','CategoryController');
-    Route::resource('posts','PostController');
+Route::get('login', [\App\Http\Controllers\AuthController::class,'showLoginForm']);
+Route::post('login', [\App\Http\Controllers\AuthController::class,'login'])->name('login');
+Route::middleware('auth')->post('logout', [\App\Http\Controllers\AuthController::class,'logout'])->name('logout');
+Route::get('admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
+
+Route::middleware('auth')->prefix('admin')->group(function(){
+    Route::resource('users',\App\Http\Controllers\Admin\UserController::class);
+    Route::resource('categories',\App\Http\Controllers\Admin\CategoryController::class);
+    Route::resource('posts',\App\Http\Controllers\Admin\PostController::class);
 });
 Route::get('/category', function () {
     return view('frontend.category');
@@ -29,9 +21,6 @@ Route::get('/category', function () {
     Route::get('/author', function () {
         return view('frontend.author');
     })->name('news-author');
-    Route::get('/index', function () {
-        return view('frontend.index');
-    })->name('news-index');
     Route::get('/search', function () {
         return view('frontend.search');
     })->name('news-search');
@@ -41,4 +30,3 @@ Route::get('/category', function () {
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
