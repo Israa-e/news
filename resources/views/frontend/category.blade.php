@@ -1,6 +1,6 @@
 @extends('frontend.layout.header')
-
-    <div id="main-content">
+@section('content')
+<div id="main-content">
       <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -10,7 +10,7 @@
                     <div class="post-content">
                         <div class="row">
                             <div class="col-md-4">
-                                <a class="post-img" href="single.php"><img src="images/post-format.jpg" alt=""/></a>
+                                <a class="post-img" href="single.php"><img src="{{ asset('images/post-format.jpg') }}" alt=""/></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="inner-content clearfix">
@@ -40,7 +40,7 @@
                     <div class="post-content">
                         <div class="row">
                             <div class="col-md-4">
-                                <a class="post-img" href="single.php"><img src="images/post_1.jpg" alt=""/></a>
+                                <a class="post-img" href="single.php"><img src="{{ asset('images/post_1.jpg') }}" alt=""/></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="inner-content clearfix">
@@ -70,7 +70,7 @@
                     <div class="post-content">
                         <div class="row">
                             <div class="col-md-4">
-                                <a class="post-img" href="single.php"><img src="images/post-format.jpg" alt=""/></a>
+                                <a class="post-img" href="single.php"><img src="{{ asset('images/post-format.jpg') }}" alt=""/></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="inner-content clearfix">
@@ -100,7 +100,7 @@
                     <div class="post-content">
                         <div class="row">
                             <div class="col-md-4">
-                                <a class="post-img" href="single.php"><img src="images/post_1.jpg" alt=""/></a>
+                                <a class="post-img" href="single.php"><img src="{{ asset('images/post_1.jpg') }}" alt=""/></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="inner-content clearfix">
@@ -130,7 +130,7 @@
                     <div class="post-content">
                         <div class="row">
                             <div class="col-md-4">
-                                <a class="post-img" href="single.php"><img src="images/post-format.jpg" alt=""/></a>
+                                <a class="post-img" href="single.php"><img src="{{ asset('images/post-format.jpg') }}" alt=""/></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="inner-content clearfix">
@@ -160,7 +160,7 @@
                     <div class="post-content">
                         <div class="row">
                             <div class="col-md-4">
-                                <a class="post-img" href="single.php"><img src="images/post_1.jpg" alt=""/></a>
+                                <a class="post-img" href="single.php"><img src="{{ asset('images/post_1.jpg') }}" alt=""/></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="inner-content clearfix">
@@ -190,7 +190,7 @@
                     <div class="post-content">
                         <div class="row">
                             <div class="col-md-4">
-                                <a class="post-img" href="single.php"><img src="images/post-format.jpg" alt=""/></a>
+                                <a class="post-img" href="single.php"><img src="{{ asset('images/post-format.jpg') }}" alt=""/></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="inner-content clearfix">
@@ -212,7 +212,7 @@
                                     <p class="description">
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua....
                                     </p>
-                                    <a class='read-more pull-right' href='single.php'>read more</a>
+                                    <a class='read-more pull-right' href={{ route('news-single') }}>read more</a>
                                 </div>
                             </div>
                         </div>
@@ -224,9 +224,8 @@
                     </ul>
                 </div><!-- /post-container -->
             </div>
-            @extends('frontend.layout.sidebar')
-
+            @include('frontend.layout.sidebar')
         </div>
       </div>
     </div>
-@extends('frontend.layout.footer')
+@endsection

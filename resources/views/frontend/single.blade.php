@@ -1,6 +1,6 @@
 @extends('frontend.layout.header')
-
-    <div id="main-content">
+@section('content')
+<div id="main-content">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
@@ -22,7 +22,7 @@
                                     01 Nov, 2019
                                 </span>
                             </div>
-                            <img class="single-feature-image" src="images/post_1.jpg" alt=""/>
+                            <img class="single-feature-image" src="{{ asset('images/post_1.jpg') }}" alt=""/>
                             <p class="description">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
                             </p>
@@ -30,9 +30,8 @@
                     </div>
                     <!-- /post-container -->
                 </div>
-                @extends('frontend.layout.sidebar')
+                @include('frontend.layout.sidebar')
             </div>
         </div>
     </div>
-    @extends('frontend.layout.footer')
-
+@endsection
