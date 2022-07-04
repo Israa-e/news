@@ -15,7 +15,9 @@
         <div class="row">
             <div class=" col-md-offset-4 col-md-4">
                 <a href={{ url('/') }} id="logo"><img src="{{ asset('images/news.jpg') }}" alt=""></a>
+                <a class="marg"  href={{ url('/login') }}>login</a>
             </div>
+            
         </div>
     </div>
 </div>

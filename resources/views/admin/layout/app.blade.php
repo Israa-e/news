@@ -47,7 +47,9 @@
             </div>
         </div>
     </div>
+
 @yield('content')
+
 <div id ="footer">
     <div class="container">
         <div class="row">

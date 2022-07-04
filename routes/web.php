@@ -11,9 +11,11 @@ Route::middleware('auth')->post('logout', [\App\Http\Controllers\AuthController:
 Route::get('admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
 
 Route::middleware('auth')->prefix('admin')->group(function(){
+    
     Route::resource('users',\App\Http\Controllers\Admin\UserController::class);
     Route::resource('categories',\App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('posts',\App\Http\Controllers\Admin\PostController::class);
+
 });
 Route::get('/category', function () {
     return view('frontend.category');
